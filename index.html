@@ -22,7 +22,7 @@
         }
 
         /* Центральный фиксированный элемент с логотипом */
-        .header-brand {
+       .header-brand {
             position: absolute;
             top: 40px;
             left: 50%;
@@ -33,23 +33,27 @@
             width: 100%;
             max-width: 600px;
             padding: 0 20px;
+            /* Включаем режим инверсии цветов относительно фона */
+            mix-blend-mode: difference; 
         }
 
         .header-brand h1 {
             font-size: 32px;
             font-weight: 800;
             letter-spacing: -0.5px;
-            color: #FFFFFF;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            /* Базовый цвет делаем чисто белым. 
+               На черном фоне он останется белым, а на белом — станет черным. */
+            color: #FFFFFF; 
             margin-bottom: 8px;
         }
 
         .header-brand p {
             font-size: 14px;
             font-weight: 400;
-            color: #B0B8C9;
             letter-spacing: 0.5px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            /* Для подзаголовка используем светло-серый, 
+               чтобы инверсия давала красивый глубокий оттенок на светлой стороне */
+            color: #E2E8F0; 
         }
 
         /* Общие стили для половин экрана */
