@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Shield AI — Экосистема безопасности</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: #0B0E17;
+            color: #F5F6FA;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .main {
+            max-width: 1200px;
+            width: 100%;
+            background: radial-gradient(circle at 20% 30%, #141A2B, #0B0E17 70%);
+            border-radius: 40px;
+            padding: 50px 40px 40px;
+            border: 1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo h1 {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #FFFFFF 40%, #00D2FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo p {
+            font-size: 14px;
+            color: #8E96A7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-weight: 300;
+            color: #B0B8C9;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.5;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .card {
+            border-radius: 28px;
+            padding: 36px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(2px);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Левая карточка — Web3 */
+        .card-web3 {
+            background: linear-gradient(145deg, #111827, #0B0E17);
+            border-left: 3px solid #00D2FF;
+        }
+        .card-web3 .card-badge {
+            color: #00D2FF;
+            border: 1px solid rgba(0,210,255,0.3);
+        }
+
+        /* Правая карточка — Corporate */
+        .card-corporate {
+            background: linear-gradient(145deg, #141A2B, #0B0E17);
+            border-left: 3px solid #F5C542;
+        }
+        .card-corporate .card-badge {
+            color: #F5C542;
+            border: 1px solid rgba(245,197,66,0.3);
+        }
+
+        .card-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            margin-bottom: 14px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+
+        .card .sub {
+            font-size: 14px;
+            color: #B0B8C9;
+            margin-bottom: 18px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 8px 0 24px 0;
+        }
+        .card ul li {
+            font-size: 14px;
+            color: #D1D9E6;
+            padding: 6px 0 6px 24px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%2300D2FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') left center no-repeat;
+            background-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .card-corporate ul li {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23F5C542" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+        }
+
+        .card .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.2s;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .card-web3 .btn {
+            background: #00D2FF;
+            color: #0B0E17;
+            box-shadow: 0 0 20px rgba(0,210,255,0.2);
+        }
+        .card-web3 .btn:hover {
+            background: #00B8E6;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0,210,255,0.35);
+        }
+
+        .card-corporate .btn {
+            background: #F5C542;
+            color: #0B0E17;
+            box-shadow: 0 0 20px rgba(245,197,66,0.2);
+        }
+        .card-corporate .btn:hover {
+            background: #E0B030;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(245,197,66,0.35);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #6B7280;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .footer a {
+            color: #8E96A7;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer a:hover {
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 800px) {
+            .main { padding: 30px 20px; }
+            .grid-2 { grid-template-columns: 1fr; gap: 24px; }
+            .card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <!-- Логотип и описание -->
+        <div class="logo">
+            <h1>Capital Shield AI</h1>
+            <p>Corporate & Web3 Security</p>
+        </div>
+        <div class="tagline">
+            Аналитические решения на базе искусственного интеллекта<br>
+            для защиты капитала и репутации
+        </div>
+
+        <!-- Два потока -->
+        <div class="grid-2">
+
+            <!-- Левая карточка: Web3 -->
+            <div class="card card-web3">
+                <span class="card-badge">🛡️ WEB3 SECURITY</span>
+                <h2>Сетевой и инвестиционный бизнес</h2>
+                <div class="sub">Для инвесторов, лидеров и крипто-энтузиастов</div>
+                <ul>
+                    <li>Анализ финансовой модели и реального срока жизни проектов</li>
+                    <li>Сканирование смарт-контрактов на скрытые бэкдоры</li>
+                    <li>Стресс-тестирование и радар безопасного вывода команд</li>
+                </ul>
+                <a href="https://gebor2011.github.io/shield/" class="btn">ПЕРЕЙТИ К АУДИТУ ПРОЕКТОВ →</a>
+            </div>
+
+            <!-- Правая карточка: Corporate -->
+            <div class="card card-corporate">
+                <span class="card-badge">📊 CORPORATE TRANSPARENCY</span>
+                <h2>Реальный бизнес</h2>
+                <div class="sub">Для руководителей, отделов закупок и безопасности</div>
+                <ul>
+                    <li>Бизнес-разведка и глубокие OSINT-досье на партнеров</li>
+                    <li>Автоматизированный аудит контрагентов и поставщиков</li>
+                    <li>Мониторинг юридических, финансовых и налоговых рисков</li>
+                </ul>
+                <a href="#" class="btn">ОТКРЫТЬ B2B ПЛАТФОРМУ FACT →</a>
+            </div>
+
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <span>© 2026 Capital Shield AI</span>
+            <a href="https://t.me/capitalshield_ai" target="_blank">Telegram</a>
+            <a href="mailto:info@capitalshield.ai">info@capitalshield.ai</a>
+        </div>
+
+    </div>
+</body>
+</html>
