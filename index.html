@@ -1,320 +1,185 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capital Shield AI — Экосистема безопасности</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<!-- HERO / ПЕРВЫЙ ЭКРАН -->
+<div style="margin-top:40px;">
 
-        body, html {
-            height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow-x: hidden;
-            background-color: #0B0E17;
-        }
-
-        .split-container {
-            display: flex;
-            height: 100vh;
-            width: 100vw;
-            position: relative;
-        }
-
-        /* Центральный фиксированный элемент с логотипом */
-       .header-brand {
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            text-align: center;
-            pointer-events: none;
-            width: 100%;
-            max-width: 600px;
-            padding: 0 20px;
-            /* Включаем режим инверсии цветов относительно фона */
-            mix-blend-mode: difference; 
-        }
-
-        .header-brand h1 {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            /* Базовый цвет делаем чисто белым. 
-               На черном фоне он останется белым, а на белом — станет черным. */
-            color: #FFFFFF; 
-            margin-bottom: 8px;
-        }
-
-        .header-brand p {
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            /* Для подзаголовка используем светло-серый, 
-               чтобы инверсия давала красивый глубокий оттенок на светлой стороне */
-            color: #E2E8F0; 
-        }
-
-        /* Общие стили для половин экрана */
-        .side {
-            width: 50%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 140px 10% 80px 10%;
-            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
-            text-decoration: none;
-        }
-
-        /* ЛЕВАЯ СТОРОНА: Web3 & Сетевой бизнес (Тёмная тема) */
-        .side-web3 {
-            background: linear-gradient(135deg, #07090E 0%, #111622 100%);
-            color: #F5F6FA;
-            border-right: 1px solid rgba(255,255,255,0.03);
-        }
-        /* ПРАВАЯ СТОРОНА: FACT & Реальный бизнес (Светлая тема) */
-        .side-corporate {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
-            color: #0F172A;
-        }
-
-        /* Контент внутри половин */
-        .side-content {
-            max-width: 460px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            height: auto;
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 6px 16px;
-            border-radius: 40px;
-            margin-bottom: 24px;
-            align-self: flex-start;
-        }
-
-        .side-web3 .badge {
-            color: #00D2FF;
-            background: rgba(0, 210, 255, 0.08);
-            border: 1px solid rgba(0, 210, 255, 0.2);
-        }
-
-        .side-corporate .badge {
-            color: #0F172A;
-            background: rgba(15, 23, 42, 0.06);
-            border: 1px solid rgba(15, 23, 42, 0.15);
-        }
-
-        .side h2 {
-            font-size: 36px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-
-        .side-web3 h2 { color: #FFFFFF; }
-        .side-corporate h2 { color: #0F172A; }
-
-        .sub {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
-
-        .side-web3 .sub { color: #94A3B8; }
-        .side-corporate .sub { color: #475569; }
-
-        .side ul {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .side ul li {
-            font-size: 15px;
-            line-height: 1.4;
-            padding: 10px 0 10px 32px;
-            position: relative;
-        }
-
-        /* Иконки-галочки для списков */
-        .side-web3 ul li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 12px;
-            width: 16px;
-            height: 16px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="%2300D2FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center no-repeat;
-            background-size: contain;
-        }
-
-        .side-corporate ul li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 12px;
-            width: 16px;
-            height: 16px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="%230F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center no-repeat;
-            background-size: contain;
-        }
-
-        .side-web3 ul li { border-bottom: 1px solid rgba(255,255,255,0.03); color: #E2E8F0; }
-        .side-corporate ul li { border-bottom: 1px solid rgba(0,0,0,0.05); color: #334155; }
-         /* Кнопки действий */
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-
-        .side-web3 .btn {
-            background: #00D2FF;
-            color: #07090E;
-            box-shadow: 0 4px 20px rgba(0,210,255,0.15);
-        }
-
-        .side-web3 .btn:hover {
-            background: #FFFFFF;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,255,255,0.25);
-        }
-
-        .side-corporate .btn {
-            background: #0F172A;
-            color: #FFFFFF;
-            box-shadow: 0 4px 20px rgba(15,23,42,0.15);
-        }
-
-        .side-corporate .btn:hover {
-            background: #1E293B;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(15,23,42,0.25);
-        }
-
-        /* Единый аккуратный подвал */
-        .footer-fixed {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: flex;
-            gap: 40px;
-            font-size: 13px;
-        }
-
-        .footer-fixed span { color: #64748B; }
-        .footer-fixed a { color: #64748B; text-decoration: none; transition: 0.2s; font-weight: 500; }
-        .footer-fixed a:hover { color: #00D2FF; }
-
-        /* Адаптивность для мобильных экранов (Перестроение в стек) */
-        @media (max-width: 900px) {
-            .split-container {
-                flex-direction: column;
-                height: auto;
-            }
-            .side {
-                width: 100%;
-                height: auto;
-                min-height: 100vh;
-                padding: 120px 40px 80px 40px;
-                align-items: center;
-            }
-            .side-content {
-                max-width: 100%;
-            }
-            .header-brand {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                padding: 40px 20px 20px 20px;
-                background: #07090E;
-            }
-            .footer-fixed {
-                position: relative;
-                bottom: 0;
-                left: 0;
-                transform: none;
-                width: 100%;
-                background: #F8FAFC;
-                padding: 30px 20px;
-                justify-content: center;
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .side-web3 {
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Шапка над разводкой -->
-    <div class="header-brand">
-        <h1>Capital Shield AI</h1>
-        <p>Corporate & Web3 Security Ecosystem</p>
+    <div style="font-size:13px;color:#9CA3AF;margin-bottom:12px;">
+        Capital Shield AI
     </div>
 
-    <div class="split-container">
+    <h1 style="font-size:42px;font-weight:800;line-height:1.1;margin-bottom:16px;">
+        Система контроля инвестиционных рисков
+    </h1>
 
-        <!-- СЕКТОР 1: Сетевой и инвестиционный бизнес (Тёмный стиль) -->
-        <div class="side side-web3">
-            <div class="side-content">
-                <span class="badge">🛡️ Web3 Security</span>
-                <h2>Сетевой и инвестиционный бизнес</h2>
-                <div class="sub">Профессиональный ИИ-аудит проектов для частных инвесторов, лидеров структур и крипто-энтузиастов.</div>
-                <ul>
-                    <li>Анализ финансовой модели и реального срока жизни проектов</li>
-                    <li>Сканирование смарт-контрактов на скрытые бэкдоры и уязвимости</li>
-                    <li>Стресс-тестирование для безопасного вывода и мн. др.</li>
-                </ul>
-                <a href="https://gebor2011.github.io/shield/ " class="btn">Перейти к аудиту проектов →</a>
+    <p style="font-size:18px;color:#D1D9E6;line-height:1.6;max-width:800px;margin-bottom:18px;">
+        Вы не угадываете, когда проект станет опасным — вы видите это заранее.
+    </p>
+
+    <p style="font-size:16px;color:#9CA3AF;line-height:1.6;max-width:800px;margin-bottom:24px;">
+        Capital Shield AI отслеживает изменения в инвестиционных проектах и предупреждает о росте рисков до того, как они становятся очевидными.
+    </p>
+
+    <div style="font-size:14px;color:#D1D9E6;margin-bottom:28px;">
+        Пока другие реагируют на последствия — вы видите причины заранее.
+    </div>
+
+    <a href="https://t.me/capitalshield_ai"
+       style="display:inline-block;background:#F5C542;color:#0B0E17;font-weight:700;padding:14px 26px;border-radius:40px;text-decoration:none;">
+        Подключить систему
+    </a>
+
+</div>
+<!-- PROBLEM BLOCK -->
+<div style="margin-top:56px;">
+
+    <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;">
+        Почему инвесторы теряют деньги
+    </h2>
+
+    <p style="font-size:16px;color:#9CA3AF;max-width:900px;margin-bottom:28px;">
+        Большинство проектов не выглядят рискованными в момент входа. Наоборот — они выглядят стабильными, активными и убедительными.
+    </p>
+
+    <div style="font-size:16px;color:#D1D9E6;line-height:1.8;max-width:900px;">
+
+        <p>Инвестор принимает решение на основе текущей “картинки” проекта.</p>
+        <p>Команда транслирует рост, активность и уверенность.</p>
+        <p>Риски в этот момент ещё не проявлены.</p>
+        <p>После входа ситуация начинает меняться, но это уже не видно сразу.</p>
+
+    </div>
+
+    <div style="margin-top:24px;font-size:16px;color:#E8EDF5;font-weight:600;">
+        Главная проблема не в анализе. Проблема в том, что изменения происходят после входа.
+    </div>
+
+    <div style="margin-top:12px;font-size:15px;color:#9CA3AF;">
+        И большинство инвесторов узнают об этом слишком поздно.
+    </div>
+
+</div>
+<!-- SYSTEM BLOCK -->
+<div style="margin-top:56px;">
+
+    <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;">
+        Как работает Capital Shield AI
+    </h2>
+
+    <p style="font-size:16px;color:#9CA3AF;max-width:900px;margin-bottom:28px;">
+        Это не набор услуг и не разовый анализ. Это система, которая отслеживает инвестиционный проект во времени.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:18px;max-width:900px;">
+
+        <!-- COMPASS -->
+        <div style="background:#12161F;border:1px solid #2A2F3F;border-radius:18px;padding:20px;">
+
+            <div style="font-size:18px;font-weight:700;margin-bottom:8px;">
+                🧭 Compass — входной анализ
             </div>
+
+            <div style="font-size:15px;color:#D1D9E6;line-height:1.6;">
+                Система формирует первичную картину проекта:
+                оценка структуры, базовых рисков и слабых мест.
+            </div>
+
+            <div style="margin-top:10px;font-size:14px;color:#9CA3AF;">
+                Вы понимаете, с чем именно имеете дело.
+            </div>
+
         </div>
-        <!-- СЕКТОР 2: Реальный бизнес (Светлый стиль) -->
-        <div class="side side-corporate">
-            <div class="side-content">
-                <span class="badge">📊 Corporate Transparency</span>
-                <h2>Реальный бизнес</h2>
-                <div class="sub">Интеллектуальная бизнес-разведка для предпринимателей, собственников компаний и отделов безопасности.</div>
-                <ul>
-                    <li>Глубокие OSINT-досье на юр. лица,партнеров и бенефициаров</li>
-                    <li>Аудит контрагентов и поставщиков «на земле»</li>
-                    <li>Мониторинг налоговых, юридических и транзакционных рисков и мн.др.</li>
-                </ul>
-                <a href="https://gebor2011.github.io/fact/" class="btn">Открыть B2B платформу FACT →</a>
+
+        <!-- GUARDIAN -->
+        <div style="background:#12161F;border:1px solid #2A2F3F;border-radius:18px;padding:20px;">
+
+            <div style="font-size:18px;font-weight:700;margin-bottom:8px;">
+                🛡️ Guardian — контроль во времени
             </div>
+
+            <div style="font-size:15px;color:#D1D9E6;line-height:1.6;">
+                Система отслеживает изменения в проекте после вашего входа:
+                поведение команды, риски и отклонения от нормы.
+            </div>
+
+            <div style="margin-top:10px;font-size:14px;color:#9CA3AF;">
+                Вы видите, как проект меняется со временем.
+            </div>
+
+        </div>
+
+        <!-- SIGNALS -->
+        <div style="background:#12161F;border:1px solid #2A2F3F;border-radius:18px;padding:20px;">
+
+            <div style="font-size:18px;font-weight:700;margin-bottom:8px;">
+                🔔 Risk Signals — ранние предупреждения
+            </div>
+
+            <div style="font-size:15px;color:#D1D9E6;line-height:1.6;">
+                Система фиксирует критические изменения в момент их появления:
+                рост риска, нестабильность и аномалии поведения.
+            </div>
+
+            <div style="margin-top:10px;font-size:14px;color:#9CA3AF;">
+                Вы узнаёте о рисках до того, как они становятся очевидными.
+            </div>
+
         </div>
 
     </div>
 
-    <!-- Общий подвал -->
-    <div class="footer-fixed">
-        <span>© 2026 Capital Shield AI</span>
-        <a href="https://t.me/capitalshield_ai"_blank">Telegram-канал</a>
-        <a href="mailto:info@capitalshield.ai">info@capitalshield.ai</a>
+</div>
+<!-- EFFECT BLOCK -->
+<div style="margin-top:56px;">
+
+    <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;">
+        Что вы начинаете видеть после подключения
+    </h2>
+
+    <p style="font-size:16px;color:#9CA3AF;max-width:900px;margin-bottom:28px;">
+        Инвестиции перестают быть набором разрозненных сигналов. Вы начинаете видеть динамику изменений.
+    </p>
+
+    <div style="font-size:16px;color:#D1D9E6;line-height:1.8;max-width:900px;">
+
+        <p>Как меняется проект после вашего входа.</p>
+        <p>Где появляются первые признаки роста риска.</p>
+        <p>Какие изменения происходят до публичных проблем.</p>
+        <p>Когда проект начинает терять устойчивость.</p>
+        <p>В какой момент ситуация становится критической.</p>
+
     </div>
 
-</body>
-</html>
+    <div style="margin-top:24px;font-size:16px;color:#E8EDF5;font-weight:600;">
+        Вы перестаёте реагировать на события — вы видите их формирование.
+    </div>
+
+    <div style="margin-top:12px;font-size:15px;color:#9CA3AF;">
+        Это и есть главное отличие системы от разового анализа.
+    </div>
+
+</div>
+<!-- FINAL CTA -->
+<div style="margin-top:60px; text-align:center; background:#12161F; border:1px solid #2A2F3F; border-radius:24px; padding:36px;">
+
+    <div style="font-size:22px;font-weight:800;margin-bottom:12px;">
+        Подключите Capital Shield AI
+    </div>
+
+    <div style="font-size:16px;color:#9CA3AF;max-width:700px;margin:0 auto 20px;line-height:1.6;">
+        Вы не покупаете отчёты. Вы подключаете систему контроля инвестиционных рисков, которая работает во времени.
+    </div>
+
+    <div style="font-size:15px;color:#D1D9E6;max-width:700px;margin:0 auto 28px;line-height:1.7;">
+        Compass — входной анализ проекта<br>
+        Guardian — контроль изменений во времени<br>
+        Risk Signals — ранние предупреждения о рисках
+    </div>
+
+    <a href="https://t.me/capitalshield_ai"
+       style="display:inline-block;background:#F5C542;color:#0B0E17;font-weight:700;padding:14px 28px;border-radius:40px;text-decoration:none;font-size:15px;">
+        Подключить систему
+    </a>
+
+    <div style="margin-top:14px;font-size:13px;color:#6B7280;">
+        доступ к системе мониторинга открывается после подключения
+    </div>
+
+</div>
