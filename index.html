@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Market Pulse – Пульс Рынка</title>
+  <title>Market Pulse – Рентген Проекта</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0B0E17;font-family:Inter,sans-serif;color:#E8EDF5;padding:0 16px}
+    body{background:#0B0E17;font-family:Inter,sans-serif;color:#E8EDF5;padding:0 16px;scroll-behavior:smooth}
     .wrap{max-width:1100px;margin:0 auto;padding:30px 0 50px}
     .logo{font-size:20px;font-weight:700;color:#fff;border-bottom:1px solid #1A1F2C;padding-bottom:16px;margin-bottom:30px}
     .logo span{color:#F5C542}
+    .logo small{font-weight:400;color:#9CA3AF;font-size:14px;margin-left:6px}
     h1{font-size:38px;font-weight:800;line-height:1.15;margin-bottom:12px}
     h2{font-size:26px;font-weight:700;margin-bottom:8px}
     .sub{color:#9CA3AF;font-size:18px}
@@ -19,14 +20,14 @@
     .card:hover{border-color:#F5C542;transform:translateY(-4px)}
     .card .icon{font-size:32px;margin-bottom:8px}
     .card h4{color:#F5C542;font-size:16px;margin-bottom:6px}
-    .card p{font-size:13px;color:#D1D9E6}
+    .card p{font-size:13px;color:#D1D9E6;line-height:1.5}
     .btn-gold{display:inline-block;padding:14px 32px;border-radius:40px;background:#F5C542;color:#0B0E17;font-weight:700;font-size:18px;text-decoration:none;transition:.2s;border:none;cursor:pointer}
     .btn-gold:hover{background:#e0b032}
     .btn-outline{display:inline-block;padding:14px 32px;border-radius:40px;background:transparent;color:#F5C542;border:2px solid #F5C542;font-weight:700;font-size:16px;text-decoration:none;transition:.2s}
     .btn-outline:hover{background:#F5C542;color:#0B0E17}
     .section{margin-top:50px}
     .box{background:#12161F;border-radius:24px;padding:32px 24px;border:1px solid #2A2F3F;text-align:center}
-    .box-inner{max-width:500px;margin:0 auto}
+    .box-inner{max-width:500px;margin:0 auto;text-align:left}
     .ftr{text-align:center;border-top:1px solid #1A1F2C;padding-top:20px;margin-top:50px;font-size:13px;color:#6B7280}
     .ftr a{color:#6B7280;text-decoration:none}
     .ftr a.gold{color:#F5C542;font-weight:600}
@@ -36,6 +37,8 @@
     input:focus{border-color:#F5C542}
     label{font-size:14px;color:#D1D9E6;font-weight:600;display:block;margin-bottom:4px}
     .btn-block{display:block;width:100%;text-align:center}
+    .text-muted{font-size:12px;color:#6B7280;text-align:center}
+    .text-center{text-align:center}
     @media(max-width:768px){h1{font-size:28px}h2{font-size:22px}.grid{grid-template-columns:1fr}.wrap{padding:20px 0}}
     @media(max-width:480px){h1{font-size:22px}.card{padding:16px}}
   </style>
@@ -43,103 +46,102 @@
 <body>
 <div class="wrap">
 
-  <!-- Лого -->
-  <div class="logo"><span>📡</span> MARKET PULSE <span style="font-weight:400;color:#9CA3AF;font-size:14px;margin-left:6px">by Capital Shield AI</span></div>
-
-  <!-- ГЕРОЙ -->
-  <h1>Что происходит с вашим инвестиционным проектом прямо сейчас? Хватит терять деньги и аудиторию! Узнай истинный «Пульс» своего проекта.</h1>
-  <div class="sub" style="margin:12px 0 24px">
-    <p style="font-size:20px;color:#E8EDF5;font-weight:600;">Независимый взгляд на ваш инвестиционный проект</p>
-    <p style="margin-top:14px;">Мы анализируем открытую информацию о проекте: официальный сайт, социальные сети, отзывы, активность сообщества и другие доступные источники.</p>
-    <p><strong style="color:#fff;">В результате вы получаете объективное представление о текущем состоянии проекта, его сильных и слабых сторонах, потенциальных рисках и факторах, на которые инвестору стоит обратить внимание.</strong></p>
-      </div>
-
-  <!-- ЕДИНСТВЕННАЯ КНОПКА ВВЕРХУ (ведёт на форму) -->
-  <div style="max-width:400px;margin-bottom:40px">
-    <a href="#order" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">🚀 Узнать «Пульс» своего проекта за $12</a>
-    <div style="font-size:13px;color:#6B7280;text-align:center;margin-top:8px">Оплата USDT BEP20 · Без подписок </div>
+  <!-- ===== ЛОГО ===== -->
+  <div class="logo">
+    <span>🛡️</span> CAPITAL SHIELD AI <span>—</span> Market Pulse
   </div>
 
-  <!-- Что получишь -->
+  <!-- ===== ГЕРОЙ ===== -->
+  <h1>Твой проект здоров? Или пора делать «Рентген»?</h1>
+  <div class="sub" style="margin:12px 0 24px">
+    <p style="font-size:20px;color:#E8EDF5;font-weight:600;">Мгновенная диагностика любого проекта: от симптомов до скрытых угроз.</p>
+    <p style="margin-top:8px;">Market Pulse просветит любой проект насквозь. Мы анализируем десятки параметров, чтобы дать тебе объективную картину: его реальное состояние, слабые места и потенциальные «болезни», которые могут стоить тебе капитала.</p>
+  </div>
+
+  <!-- ===== КНОПКА ВВЕРХУ ===== -->
+  <div style="max-width:400px;margin-bottom:40px">
+    <a href="#order" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">☢️ Сделать «Рентген» проекта за $12</a>
+    <div style="font-size:13px;color:#6B7280;text-align:center;margin-top:8px">Оплата 1 минута · Результат на почту · Без подписок и скрытых платежей.</div>
+  </div>
+
+  <!-- ===== ЧТО ПОЛУЧИШЬ ===== -->
   <div class="section">
-    <h2>Что вы получите в отчёте Market Pulse</h2>
-    <p style="color:#9CA3AF;margin-bottom:20px">Это не просто данные. Это <span class="highlight">инсайты, которые меняют решения. Краткий независимый обзор проекта, который поможет лучше понять его текущее состояние, выявить потенциальные риски и обратить внимание на важные детали, которые легко упустить при самостоятельном анализе.</span>.</p>
+    <h2>Твой «Рентген» покажет то, что скрыто:</h2>
+    <p style="color:#9CA3AF;margin-bottom:20px">Это не просто цифры. Это <span class="highlight">глубокий срез</span>, который поможет спасти твой капитал.</p>
     <div class="grid">
       <div class="card">
         <div class="icon">📊</div>
-        <h4>Рейтинг доверия</h4>
-        <p>Мы анализируем активность в соцсетях, отзывы на форумах, поведение команды и рыночные показатели, чтобы вычислить единый балл от 0 до 100. Статус: <strong style="color:#fff;">«Лидер»</strong>, <strong style="color:#fff;">«Середняк»</strong> или <strong style="color:#fff;">«Красная зона»</strong>. Один взгляд – и ты знаешь, стоит ли доверять проекту.</p>
+        <h4>Trust Score: Жизненно важный показатель</h4>
+        <p>Оценка от 0 до 100 по ключевым метрикам (активность команды, объём торгов, возраст). Статус: <strong style="color:#fff;">«Здоров»</strong>, <strong style="color:#fff;">«Под наблюдением»</strong> или <strong style="color:#fff;">«Критический»</strong>. Сразу поймёшь: проект жив или уже на ИВЛ.</p>
       </div>
       <div class="card">
-        <div class="icon">🗣️</div>
-        <h4>AI-вердикт – что делать дальше</h4>
-        <p>3 сильные стороны, 3 скрытые угрозы и чёткий совет: <span class="highlight">«Сфокусируйся на этом»</span>.</p>
+        <div class="icon">🧬</div>
+        <h4>AI-Диагноз: Скрытые патологии</h4>
+        <p>Краткий, но точный диагноз: 3 здоровые зоны, 3 потенциальные «патологии». Только факты, которые ты обязан знать.</p>
       </div>
       <div class="card">
-        <div class="icon">🔥</div>
-        <h4>Голос рынка – что говорят за спиной</h4>
-        <p>Одна реальная, анонимная цитата из сети – то, что <span class="highlight">никто не скажет тебе в лицо</span>.</p>
+        <div class="icon">💬</div>
+        <h4>Пульс Коммьюнити: Истинные настроения</h4>
+        <p>Что на самом деле думают о проекте его участники. Мы выявляем ключевые тренды и опасения в сообществе.</p>
       </div>
     </div>
   </div>
 
-  <!-- Кому нужно -->
+  <!-- ===== КОМУ НУЖНО ===== -->
   <div class="section">
-    <h2>Кому этот отчёт сэкономит <span class="highlight">дни и деньги</span>?</h2>
-    <p style="color:#9CA3AF;margin-bottom:20px">Одна цена – польза для всех, кто работает с криптой.</p>
+    <h2>Этот «Рентген» сэкономит тебе <span class="highlight">капитал и нервы</span>, если ты:</h2>
+    <p style="color:#9CA3AF;margin-bottom:20px">Мгновенная ясность для каждого, кто рискует в криптопроектах.</p>
     <div class="grid">
-      <div class="card"><div style="font-size:28px;margin-bottom:8px">💰</div><h4>Инвестору</h4><p>Хватит гадать. Узнай за 2 минуты: <span class="highlight">входить или выходить</span>. Одна цифра вместо десятков графиков.</p></div>
-      <div class="card"><div style="font-size:28px;margin-bottom:8px">🚀</div><h4>Лидеру / Админу</h4><p>Ты думаешь, у вас всё круто? А рынок думает иначе. Увидь <span class="highlight">слепые зоны</span>, которые убивают рост.</p></div>
-      <div class="card"><div style="font-size:28px;margin-bottom:8px">📢</div><h4>Партнёру / Админу канала</h4><p>Не рискуй репутацией. <span class="highlight">Проверь проект</span> перед тем, как рекомендовать своей аудитории.</p></div>
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">💰</div><h4>Инвестору: Хватит гадать!</h4><p>Не полагайся на интуицию. Получи чёткий вердикт: проект здоров или пора выводить активы.</p></div>
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">🚀</div><h4>Лидеру / СЕО: Защити команду!</h4><p>Ты отвечаешь за людей. Market Pulse покажет, какие скрытые «болезни» проекта могут подорвать доверие и твою репутацию.</p></div>
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">📢</div><h4>Партнёру / Админу канала: Рекомендуй без страха!</h4><p>Твоя репутация – твой главный актив. Убедись, что проект, который ты собираешься рекомендовать, не окажется «сюрпризом» для твоей аудитории.</p></div>
     </div>
   </div>
 
-  <!-- Как работает -->
+  <!-- ===== КАК РАБОТАЕТ ===== -->
   <div class="section">
-    <h2 style="margin-bottom:20px">Три шага – и ты в курсе</h2>
+    <h2 style="margin-bottom:20px">Твой «Рентген» в 3 простых шага:</h2>
     <div class="grid">
-      <div class="card" style="text-align:center"><div style="font-size:40px">1️⃣</div><h4>Введи ссылку</h4><p>Сайт, Telegram или смарт-контракт – мы берём всё</p></div>
-      <div class="card" style="text-align:center"><div style="font-size:40px">2️⃣</div><h4>Оплати 12 USDT (BEP20)</h4><p>На кошелёк ниже – это займёт 1 минуту</p></div>
-      <div class="card" style="text-align:center"><div style="font-size:40px">3️⃣</div><h4>Напиши нам в Telegram</h4><p>И получи отчёт с полной картиной</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:40px">1️⃣</div><h4>Укажи адрес проекта</h4><p>Введи ссылку на сайт, Telegram-канал или адрес смарт-контракта.</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:40px">2️⃣</div><h4>Оплати $12</h4><p>Быстрая оплата в USDT (BEP20).</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:40px">3️⃣</div><h4>Получи «Рентген» на почту</h4><p>Полный отчёт Market Pulse придёт на указанный email.</p></div>
     </div>
   </div>
 
-  <!-- Отзывы -->
+  <!-- ===== ОТЗЫВЫ ===== -->
   <div class="section">
-    <h2 style="margin-bottom:20px">Реальные люди — реальные результаты</h2>
+    <h2 style="margin-bottom:20px">Что говорят те, кто уже сделал «Рентген»:</h2>
     <div class="grid">
-      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Я думал, у нас всё гладко. А Market Pulse показал, что мы тонем в негативе на форумах. За $12 я сэкономил месяцы работы над имиджем.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Алексей, CEO DeFi-проекта</p></div>
-      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Раньше я проверял проекты вручную — уходили дни. Теперь просто даю ссылку и получаю рейтинг доверия. Это мой новый ритуал перед любой инвестицией.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Марина, частный инвестор</p></div>
+      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Думал, всё хорошо, а «Рентген» показал скрытые проблемы в коммьюнити. Сэкономил кучу денег, вовремя вышел.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Денис, инвестор</p></div>
+      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Раньше тратил дни на сбор инфы. Теперь просто делаю «Рентген» и вижу полную картину за 5 минут. Бесплатно? Нет, но $12 — это смешно.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Ольга, CEO проекта</p></div>
       <div class="card" style="display:flex;align-items:center;justify-content:center;border-style:dashed"><p style="color:#6B7280;font-size:13px;text-align:center">Ваш отзыв<br />здесь 😉</p></div>
     </div>
   </div>
 
-  <!-- Апсейл -->
+  <!-- ===== АПСЕЙЛ: GUARDIAN ===== -->
   <div class="section box">
-    <h2 style="font-size:24px;margin-bottom:10px">Обнаружили риски? <span class="highlight">Guardian</span> решит их</h2>
-    <p style="color:#D1D9E6;max-width:750px;margin:0 auto 20px;font-size:15px">Market Pulse дал вам честную диагностику. Если есть тревожные звоночки — <strong style="color:#F5C542">Guardian</strong> возьмёт проект под круглосуточный контроль и будет предупреждать о каждой угрозе. Никаких сюрпризов.</p>
-    <a href="https://gebor2011.github.io/shield/" class="btn-outline" style="max-width:300px;margin:0 auto">Узнать о Guardian →</a>
-    <div style="font-size:12px;color:#6B7280;margin-top:12px">Market Pulse — независимый продукт. Без обязательств.</div>
+    <h2 style="font-size:24px;margin-bottom:10px">«Рентген» показал тревожные симптомы? <span class="highlight">Guardian</span> готов к лечению.</h2>
+    <p style="color:#D1D9E6;max-width:750px;margin:0 auto 20px;font-size:15px">Market Pulse — это разовая диагностика. Если «Рентген» выявил скрытые угрозы, или ты хочешь держать проект под постоянным наблюдением, <strong style="color:#F5C542">Guardian</strong> возьмёт его под круглосуточный контроль. Он будет предупреждать о каждой «болезни» проекта до того, как она станет критической.</p>
+    <a href="https://gebor2011.github.io/shield/" class="btn-outline" style="max-width:300px;margin:0 auto">Получить «Лечение» от Guardian →</a>
+    <div style="font-size:12px;color:#6B7280;margin-top:12px">Market Pulse — независимая диагностика. Без обязательств.</div>
   </div>
 
-  <!-- ФОРМА (id="order") -->
+  <!-- ===== ФОРМА (id="order") ===== -->
   <div id="order" class="section box" style="text-align:left">
-    <h2 style="text-align:center;font-size:28px">Готов увидеть свой проект со стороны?</h2>
-    <p style="text-align:center;color:#9CA3AF;margin-bottom:24px">Заполните поля, оплатите и отправьте заявку. Мы свяжемся с вами в Telegram.</p>
+    <h2 style="text-align:center;font-size:28px">Готов узнать истинное «Здоровье» своего проекта?</h2>
+    <p style="text-align:center;color:#9CA3AF;margin-bottom:24px">Заполните данные, оплатите и получите ваш «Рентген» на email.</p>
     <div class="box-inner">
-      <!-- НАЧАЛО ФОРМЫ -->
       <form action="https://formspree.io/f/mzdlajab" method="POST">
-        <!-- Скрытое поле для темы письма -->
-        <input type="hidden" name="_subject" value="Новая заявка с Market Pulse" />
+        <input type="hidden" name="_subject" value="Новая заявка на Рентген с Market Pulse" />
 
         <label>Ссылка на проект</label>
-        <input type="text" name="project_link" placeholder="Например, сайт или Telegram-канал" required />
+        <input type="text" name="project_link" placeholder="Сайт / Telegram / смарт-контракт" required />
 
         <label>Email для отчёта</label>
         <input type="email" name="email" placeholder="your@email.com" required />
 
-        <label>Ваш Telegram (для связи)</label>
-        <input type="text" name="telegram" placeholder="@username" required />
+        <label>Ваш Telegram (необязательно, для экстренной связи)</label>
+        <input type="text" name="telegram" placeholder="@username" />
 
         <div style="background:#0B0E17;border-radius:16px;padding:18px;border:1px solid #2A2F3F;margin:16px 0">
           <p style="font-weight:700;color:#F5C542;text-align:center;font-size:16px">💳 Оплата 12 USDT (BEP20)</p>
@@ -148,17 +150,15 @@
           <p style="font-size:12px;color:#6B7280;text-align:center">Сеть <strong>BEP20 (BSC)</strong>. Проверьте перед отправкой.</p>
         </div>
 
-        <!-- Кнопка отправки формы -->
-        <button type="submit" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">📨 Сообщить об оплате и получить отчёт</button>
+        <button type="submit" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">📨 Сообщить об оплате и получить «Рентген»</button>
       </form>
-      <!-- КОНЕЦ ФОРМЫ -->
-      <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:14px;">После отправки заявки мы свяжемся с вами в Telegram для подтверждения оплаты и отправки отчёта.</div>
+      <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:14px;">После оплаты и отправки заявки, ваш «Рентген» будет отправлен на указанный email. В редких случаях может потребоваться ручная обработка.</div>
     </div>
   </div>
 
-  <!-- Футер -->
+  <!-- ===== ФУТЕР ===== -->
   <div class="ftr">
-    <div>© 2026 Capital Shield AI · Market Pulse</div>
+    <div>© 2026 Capital Shield AI | Market Pulse</div>
     <div style="margin-top:8px">
       <a href="https://gebor2011.github.io/shield/">Guardian</a> ·
       <a href="#">Политика конфиденциальности</a> ·
