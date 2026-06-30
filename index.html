@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Market Pulse – Пульс Рынка</title>
 
-    <!-- Шрифт Inter (как на оригинальном сайте) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&amp;display=swap" rel="stylesheet" />
 
     <style>
-        /* ===== ГЛОБАЛЬНЫЕ СТИЛИ (в точности как на shield) ===== */
+        /* ===== ГЛОБАЛЬНЫЕ СТИЛИ (как на shield) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +29,6 @@
             padding: 40px 0 60px;
         }
 
-        /* ===== ЛОГОТИП ===== */
         .logo {
             font-size: 20px;
             font-weight: 700;
@@ -43,7 +41,6 @@
             color: #F5C542;
         }
 
-        /* ===== ЗАГОЛОВКИ ===== */
         h1 {
             font-size: 40px;
             font-weight: 800;
@@ -61,14 +58,12 @@
             color: #9CA3AF;
         }
 
-        /* ===== СЕТКА КАРТОЧЕК (3 колонки) ===== */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
-        /* ===== КАРТОЧКА ===== */
         .card {
             background: #12161F;
             border-radius: 20px;
@@ -87,7 +82,6 @@
             }
         }
 
-        /* ===== ЗОЛОТАЯ КНОПКА ===== */
         .btn-gold {
             display: inline-block;
             background: #F5C542;
@@ -107,7 +101,26 @@
             background: #e0b032;
         }
 
-        /* ===== ПРИМЕЧАНИЕ (желтая полоска слева) ===== */
+        .btn-outline-gold {
+            display: inline-block;
+            background: transparent;
+            color: #F5C542;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-align: center;
+            width: 100%;
+            text-decoration: none;
+            border: 2px solid #F5C542;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-outline-gold:hover {
+            background: #F5C542;
+            color: #0B0E17;
+        }
+
         .note {
             font-size: 13px;
             color: #9CA3AF;
@@ -121,7 +134,19 @@
             color: #E8EDF5;
         }
 
-        /* ===== АДАПТИВ ===== */
+        .wallet-box {
+            background: #0B0E17;
+            border: 1px solid #2A2F3F;
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin: 16px 0 24px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #F5C542;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .grid-3 {
                 grid-template-columns: 1fr;
@@ -142,15 +167,36 @@
                 padding: 20px 16px;
             }
         }
+
+        /* Стили для полей ввода */
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid #2A2F3F;
+            background: #0B0E17;
+            color: #E8EDF5;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.2s;
+        }
+        input:focus {
+            border-color: #F5C542;
+        }
+        label {
+            font-size: 14px;
+            color: #D1D9E6;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
 
-        <!-- ============================================================ -->
-        <!-- 1. ЛОГОТИП (как на shield)                                   -->
-        <!-- ============================================================ -->
+        <!-- ===== ЛОГОТИП ===== -->
         <div class="logo">
             <span class="icon">📡</span> MARKET PULSE
             <span style="font-weight:400;color:#9CA3AF;font-size:14px;margin-left:8px;">
@@ -158,9 +204,7 @@
             </span>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 2. ГЛАВНЫЙ ЭКРАН (HERO)                                      -->
-        <!-- ============================================================ -->
+        <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
         <h1>Твой проект действительно хорош?<br />Или просто шумит?</h1>
 
         <div class="subhead" style="margin-top:16px;">
@@ -171,7 +215,7 @@
             <p>Trust Score, карта конкурентов, AI-вердикт и живой голос рынка.</p>
         </div>
 
-        <!-- КНОПКА CTA (главная) -->
+        <!-- КНОПКА CTA (ведёт к форме) -->
         <div style="margin-top:32px;max-width:400px;">
             <a class="btn-gold" href="#order" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
                 🔥 Проверить пульс проекта за $12
@@ -181,17 +225,13 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 3. БЛОК «ЧТО ТЫ ПОЛУЧИШЬ ЗА $12» (4 карточки в сетке 4?)    -->
-        <!--    Используем grid-3, но для 4 элементов делаем 2+2 на планшете -->
-        <!-- ============================================================ -->
+        <!-- ===== БЛОК «ЧТО ТЫ ПОЛУЧИШЬ» ===== -->
         <div style="margin-top:64px;">
             <h2 style="margin-bottom:8px;">Что ты получишь за $12, что сэкономит тебе тысячи?</h2>
             <p style="color:#9CA3AF;margin-bottom:24px;">
                 Это не просто данные. Это инсайты, которые ты не найдёшь сам.
             </p>
 
-            <!-- Сетка: на десктопе 4 колонки, на планшете 2, на телефоне 1 -->
             <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
 
                 <div class="card" style="padding:20px 16px;">
@@ -228,7 +268,6 @@
 
             </div>
 
-            <!-- Адаптив для 4 колонок -->
             <style>
                 @media (max-width: 992px) {
                     div[style*="grid-template-columns: repeat(4,1fr)"] {
@@ -242,7 +281,7 @@
                 }
             </style>
 
-            <!-- Повторная кнопка CTA -->
+            <!-- Повторная кнопка (ведёт к форме) -->
             <div style="margin-top:32px;max-width:400px;margin-left:auto;margin-right:auto;">
                 <a class="btn-gold" href="#order" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
                     Получить отчёт за $12
@@ -250,9 +289,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 4. БЛОК «КОМУ ЭТО НУЖНО» (3 карточки)                        -->
-        <!-- ============================================================ -->
+        <!-- ===== БЛОК «КОМУ ЭТО НУЖНО» ===== -->
         <div style="margin-top:64px;">
             <h2 style="margin-bottom:8px;">Этот отчёт нужен каждому, кто работает с криптопроектами</h2>
             <p style="color:#9CA3AF;margin-bottom:24px;">Одна цена — польза для всех.</p>
@@ -286,9 +323,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 5. БЛОК «КАК ЭТО РАБОТАЕТ» (3 шага)                          -->
-        <!-- ============================================================ -->
+        <!-- ===== БЛОК «КАК ЭТО РАБОТАЕТ» ===== -->
         <div style="margin-top:64px;">
             <h2 style="margin-bottom:24px;">Всего 3 шага до полной картины</h2>
 
@@ -302,26 +337,20 @@
 
                 <div class="card" style="text-align:center;">
                     <div style="font-size:40px;margin-bottom:8px;">2️⃣</div>
-                    <h4 style="font-size:16px;color:#F5C542;">Оплати $12</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">Карта или криптовалюта (USDT/BUSD/USDC)</p>
+                    <h4 style="font-size:16px;color:#F5C542;">Оплати 12 USDT (BEP20)</h4>
+                    <p style="font-size:13px;color:#D1D9E6;">На указанный кошелёк — это займёт 1 минуту</p>
                 </div>
 
                 <div class="card" style="text-align:center;">
                     <div style="font-size:40px;margin-bottom:8px;">3️⃣</div>
-                    <h4 style="font-size:16px;color:#F5C542;">Получи отчёт</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">На почту через 5 минут</p>
+                    <h4 style="font-size:16px;color:#F5C542;">Сообщи об оплате</h4>
+                    <p style="font-size:13px;color:#D1D9E6;">Напиши нам в Telegram — и получи отчёт через 5 минут</p>
                 </div>
 
             </div>
-
-            <div class="note" style="margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;">
-                <strong>Никаких сложных форм.</strong> Только то, что нужно для анализа.
-            </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 6. БЛОК «СОЦИАЛЬНЫЕ ДОКАЗАТЕЛЬСТВА» (отзывы)                 -->
-        <!-- ============================================================ -->
+        <!-- ===== ОТЗЫВЫ ===== -->
         <div style="margin-top:64px;">
             <h2 style="margin-bottom:24px;">Что говорят наши клиенты</h2>
 
@@ -341,7 +370,6 @@
                     <p style="font-size:13px;color:#F5C542;font-weight:600;">— Марина, инвестор</p>
                 </div>
 
-                <!-- Третий отзыв можно добавить позже -->
                 <div class="card" style="display:flex;align-items:center;justify-content:center;border-style:dashed;border-color:#2A2F3F;">
                     <p style="font-size:13px;color:#6B7280;text-align:center;">
                         Ваш отзыв<br />здесь 😉
@@ -351,9 +379,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 7. БЛОК «ЧТО ДАЛЬШЕ?» (мягкий апсейл на Guardian)           -->
-        <!-- ============================================================ -->
+        <!-- ===== АПСЕЙЛ НА GUARDIAN ===== -->
         <div style="margin-top:64px;background:#12161F;border-radius:24px;padding:32px 28px;border:1px solid #2A2F3F;text-align:center;">
 
             <h2 style="font-size:24px;margin-bottom:12px;">Что делать, если твой проект в зоне риска?</h2>
@@ -372,60 +398,70 @@
 
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 8. ФОРМА ОПЛАТЫ (финальный блок)                             -->
-        <!-- ============================================================ -->
+        <!-- ===== ФОРМА / ОПЛАТА ===== -->
         <div id="order" style="margin-top:64px;background:#12161F;border-radius:24px;padding:40px 28px;border:1px solid #2A2F3F;">
 
             <h2 style="text-align:center;font-size:28px;margin-bottom:8px;">Готов узнать реальное положение дел?</h2>
-            <p style="text-align:center;color:#9CA3AF;margin-bottom:28px;">Заполни форму — и через 5 минут получишь полный отчёт.</p>
+            <p style="text-align:center;color:#9CA3AF;margin-bottom:28px;">
+                Заполните форму, оплатите 12 USDT и свяжитесь с нами в Telegram — через 5 минут получите полный отчёт.
+            </p>
 
             <div style="max-width:500px;margin:0 auto;">
 
-                <!-- ПОЛЕ: ссылка на проект -->
+                <!-- Поле: ссылка на проект -->
                 <div style="margin-bottom:16px;">
-                    <label style="font-size:14px;color:#D1D9E6;display:block;margin-bottom:6px;font-weight:600;">
-                        Ссылка на проект
-                    </label>
-                    <input type="text" placeholder="Сайт / Telegram / смарт-контракт" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid #2A2F3F;background:#0B0E17;color:#E8EDF5;font-size:15px;outline:none;transition:border 0.2s;" />
+                    <label for="project">Ссылка на проект</label>
+                    <input type="text" id="project" placeholder="Сайт / Telegram / смарт-контракт" />
                 </div>
 
-                <!-- ПОЛЕ: Email -->
-                <div style="margin-bottom:24px;">
-                    <label style="font-size:14px;color:#D1D9E6;display:block;margin-bottom:6px;font-weight:600;">
-                        Email для отправки отчёта
-                    </label>
-                    <input type="email" placeholder="your@email.com" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid #2A2F3F;background:#0B0E17;color:#E8EDF5;font-size:15px;outline:none;transition:border 0.2s;" />
+                <!-- Поле: Email -->
+                <div style="margin-bottom:16px;">
+                    <label for="email">Email для отправки отчёта</label>
+                    <input type="email" id="email" placeholder="your@email.com" />
                 </div>
 
-                <!-- КНОПКА ОПЛАТЫ -->
-                <a class="btn-gold" href="#" style="display:block;text-align:center;font-size:20px;padding:18px 24px;">
-                    💳 Оплатить $12 и получить отчёт
+                <!-- Поле: Telegram (добавлено) -->
+                <div style="margin-bottom:20px;">
+                    <label for="telegram">Ваш Telegram (для связи)</label>
+                    <input type="text" id="telegram" placeholder="@username" />
+                </div>
+
+                <!-- Информация об оплате -->
+                <div style="background:#0B0E17;border-radius:16px;padding:20px;margin-bottom:20px;border:1px solid #2A2F3F;">
+                    <p style="font-weight:600;color:#F5C542;font-size:16px;text-align:center;">💳 Оплата 12 USDT (BEP20)</p>
+                    <p style="font-size:13px;color:#D1D9E6;text-align:center;margin-top:6px;">
+                        Переведите ровно <strong>12 USDT</strong> на кошелёк:
+                    </p>
+                    <div class="wallet-box">
+                        0x56356e0aD2988565E5906D8630BA05c3ebF813aC
+                    </div>
+                    <p style="font-size:12px;color:#6B7280;text-align:center;">
+                        Убедитесь, что выбрана сеть <strong>BEP20 (BSC)</strong>.
+                    </p>
+                </div>
+
+                <!-- Кнопка "Сообщить об оплате" (ведёт в Telegram) -->
+                <a href="https://t.me/capitalshield_ai" target="_blank" class="btn-gold" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
+                    📨 Сообщить об оплате 12$ и получить отчёт
                 </a>
 
-                <!-- Иконки платёжных систем + SSL -->
-                <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;">
-                    <span style="font-size:13px;color:#6B7280;">Visa</span>
-                    <span style="font-size:13px;color:#6B7280;">Mastercard</span>
-                    <span style="font-size:13px;color:#6B7280;">USDT</span>
-                    <span style="font-size:13px;color:#6B7280;">BUSD</span>
-                    <span style="font-size:13px;color:#6B7280;">USDC</span>
-                    <span style="font-size:13px;color:#6B7280;">🔒 SSL</span>
+                <!-- Ссылка под кнопкой -->
+                <div style="text-align:center;margin-top:12px;">
+                    <a href="https://t.me/capitalshield_ai" target="_blank" style="color:#F5C542;text-decoration:none;font-weight:600;font-size:14px;">
+                        Написать в Telegram →
+                    </a>
                 </div>
 
-                <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:8px;">
-                    Защищённая оплата. Данные не хранятся.
-                    <br />
-                    <span style="color:#9CA3AF;">Гарантия возврата: если отчёт не понравится — вернём деньги.</span>
+                <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:16px;">
+                    После оплаты напишите нам в Telegram с указанием вашего email и ссылки на проект.<br />
+                    Мы отправим отчёт в течение 5 минут.
                 </div>
 
             </div>
 
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 9. ФУТЕР (минимальный, как на shield)                        -->
-        <!-- ============================================================ -->
+        <!-- ===== ФУТЕР ===== -->
         <div style="margin-top:60px;text-align:center;border-top:1px solid #1A1F2C;padding-top:24px;">
 
             <div style="font-size:13px;color:#6B7280;">
@@ -448,6 +484,6 @@
 
         </div>
 
-    </div> <!-- /container -->
+    </div>
 </body>
 </html>
