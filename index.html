@@ -1,489 +1,149 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Market Pulse – Пульс Рынка</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&amp;display=swap" rel="stylesheet" />
-
-    <style>
-        /* ===== ГЛОБАЛЬНЫЕ СТИЛИ (как на shield) ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0B0E17;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            color: #E8EDF5;
-            line-height: 1.5;
-            padding: 0 16px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 0 60px;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #1A1F2C;
-            padding-bottom: 20px;
-        }
-        .logo .icon {
-            color: #F5C542;
-        }
-
-        h1 {
-            font-size: 40px;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .subhead {
-            font-size: 18px;
-            color: #9CA3AF;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .card {
-            background: #12161F;
-            border-radius: 20px;
-            padding: 28px 24px;
-            border: 1px solid #2A2F3F;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        @media (hover: hover) {
-            .card:hover {
-                transform: translateY(-6px);
-                border-color: #F5C542;
-                box-shadow: 0 12px 30px rgba(245, 197, 66, 0.08);
-                background: #161C28;
-            }
-        }
-
-        .btn-gold {
-            display: inline-block;
-            background: #F5C542;
-            color: #0B0E17;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 40px;
-            text-align: center;
-            width: 100%;
-            text-decoration: none;
-            transition: background 0.2s ease;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .btn-gold:hover {
-            background: #e0b032;
-        }
-
-        .btn-outline-gold {
-            display: inline-block;
-            background: transparent;
-            color: #F5C542;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 40px;
-            text-align: center;
-            width: 100%;
-            text-decoration: none;
-            border: 2px solid #F5C542;
-            transition: all 0.2s ease;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .btn-outline-gold:hover {
-            background: #F5C542;
-            color: #0B0E17;
-        }
-
-        .note {
-            font-size: 13px;
-            color: #9CA3AF;
-            margin-top: 12px;
-            padding: 10px 14px;
-            background: #1A1F2C;
-            border-radius: 10px;
-            border-left: 3px solid #F5C542;
-        }
-        .note strong {
-            color: #E8EDF5;
-        }
-
-        .wallet-box {
-            background: #0B0E17;
-            border: 1px solid #2A2F3F;
-            border-radius: 16px;
-            padding: 18px 20px;
-            margin: 16px 0 24px;
-            word-break: break-all;
-            font-family: 'Courier New', monospace;
-            font-size: 15px;
-            color: #F5C542;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            .container {
-                padding: 24px 0 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 22px;
-            }
-            .card {
-                padding: 20px 16px;
-            }
-        }
-
-        /* Стили для полей ввода */
-        input {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 1px solid #2A2F3F;
-            background: #0B0E17;
-            color: #E8EDF5;
-            font-size: 15px;
-            outline: none;
-            transition: border 0.2s;
-        }
-        input:focus {
-            border-color: #F5C542;
-        }
-        label {
-            font-size: 14px;
-            color: #D1D9E6;
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Pulse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0B0E17;font-family:Inter,sans-serif;color:#E8EDF5;padding:0 16px}
+    .wrap{max-width:1100px;margin:0 auto;padding:30px 0 50px}
+    .logo{font-size:20px;font-weight:700;color:#fff;border-bottom:1px solid #1A1F2C;padding-bottom:16px;margin-bottom:30px}
+    .logo span{color:#F5C542}
+    h1{font-size:38px;font-weight:800;line-height:1.15;margin-bottom:12px}
+    h2{font-size:26px;font-weight:700;margin-bottom:8px}
+    .sub{color:#9CA3AF;font-size:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .card{background:#12161F;border-radius:20px;padding:20px;border:1px solid #2A2F3F;transition:all .3s}
+    .card:hover{border-color:#F5C542;transform:translateY(-4px)}
+    .card .icon{font-size:32px;margin-bottom:8px}
+    .card h4{color:#F5C542;font-size:16px;margin-bottom:6px}
+    .card p{font-size:13px;color:#D1D9E6}
+    .btn-gold,.btn-outline{display:block;width:100%;padding:14px;border-radius:40px;text-align:center;font-weight:700;font-size:18px;text-decoration:none;transition:.2s;border:none;cursor:pointer}
+    .btn-gold{background:#F5C542;color:#0B0E17}
+    .btn-gold:hover{background:#e0b032}
+    .btn-outline{background:transparent;color:#F5C542;border:2px solid #F5C542;font-size:16px}
+    .btn-outline:hover{background:#F5C542;color:#0B0E17}
+    .note{font-size:13px;color:#9CA3AF;padding:10px 14px;background:#1A1F2C;border-radius:10px;border-left:3px solid #F5C542;margin-top:12px}
+    .wallet{background:#0B0E17;border:1px solid #2A2F3F;border-radius:16px;padding:16px;font-family:monospace;font-size:15px;color:#F5C542;text-align:center;word-break:break-all;margin:12px 0 20px}
+    input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #2A2F3F;background:#0B0E17;color:#E8EDF5;font-size:15px;outline:none;transition:.2s;margin-bottom:16px}
+    input:focus{border-color:#F5C542}
+    label{font-size:14px;color:#D1D9E6;font-weight:600;display:block;margin-bottom:4px}
+    .section{margin-top:50px}
+    .box{background:#12161F;border-radius:24px;padding:32px 24px;border:1px solid #2A2F3F;text-align:center}
+    .box-inner{max-width:500px;margin:0 auto}
+    .ftr{text-align:center;border-top:1px solid #1A1F2C;padding-top:20px;margin-top:50px;font-size:13px;color:#6B7280}
+    .ftr a{color:#6B7280;text-decoration:none}
+    .ftr a.gold{color:#F5C542;font-weight:600}
+    @media(max-width:768px){h1{font-size:28px}h2{font-size:22px}.grid{grid-template-columns:1fr}.wrap{padding:20px 0}}
+    @media(max-width:480px){h1{font-size:22px}.card{padding:16px}}
+  </style>
 </head>
-
 <body>
-    <div class="container">
+<div class="wrap">
 
-        <!-- ===== ЛОГОТИП ===== -->
-        <div class="logo">
-            <span class="icon">📡</span> MARKET PULSE
-            <span style="font-weight:400;color:#9CA3AF;font-size:14px;margin-left:8px;">
-                by Capital Shield AI
-            </span>
-        </div>
+  <!-- Лого -->
+  <div class="logo"><span>📡</span> MARKET PULSE <span style="font-weight:400;color:#9CA3AF;font-size:14px;margin-left:6px">by Capital Shield AI</span></div>
 
-        <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
-        <h1>Твой проект действительно хорош?<br />Или просто шумит?</h1>
+  <!-- Герой -->
+  <h1>Твой проект действительно хорош?<br />Или просто шумит?</h1>
+  <div class="sub" style="margin:12px 0 24px">
+    <p>Получи независимую оценку видимости и репутации твоего проекта в сети.</p>
+    <p><strong style="color:#fff">Без сложных терминов — только факты и чёткий вердикт.</strong></p>
+    <p>Trust Score, карта конкурентов, AI-вердикт и живой голос рынка.</p>
+  </div>
+  <div style="max-width:400px;margin-bottom:40px">
+    <a href="#order" class="btn-gold" style="font-size:18px;padding:16px">🔥 Проверить пульс проекта за $12</a>
+    <div style="font-size:13px;color:#6B7280;text-align:center;margin-top:8px">Оплата 1 минута · Отчёт через 5 минут · Без подписок</div>
+  </div>
 
-        <div class="subhead" style="margin-top:16px;">
-            <p>Получи независимую оценку видимости и репутации твоего проекта в сети.</p>
-            <br />
-            <p><strong style="color:#fff;">Без сложных терминов — только факты и чёткий вердикт.</strong></p>
-            <br />
-            <p>Trust Score, карта конкурентов, AI-вердикт и живой голос рынка.</p>
-        </div>
-
-        <!-- КНОПКА CTA (ведёт к форме) -->
-        <div style="margin-top:32px;max-width:400px;">
-            <a class="btn-gold" href="#order" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
-                🔥 Проверить пульс проекта за $12
-            </a>
-            <div style="font-size:13px;color:#6B7280;text-align:center;margin-top:10px;">
-                Оплата 1 минута · Отчёт через 5 минут · Без подписок
-            </div>
-        </div>
-
-        <!-- ===== БЛОК «ЧТО ТЫ ПОЛУЧИШЬ» ===== -->
-        <div style="margin-top:64px;">
-            <h2 style="margin-bottom:8px;">Что ты получишь за $12, что сэкономит тебе тысячи?</h2>
-            <p style="color:#9CA3AF;margin-bottom:24px;">
-                Это не просто данные. Это инсайты, которые ты не найдёшь сам.
-            </p>
-
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-
-                <div class="card" style="padding:20px 16px;">
-                    <div style="font-size:32px;margin-bottom:8px;">📊</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Trust Score</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Цифра от 0 до 100 + статус («Лидер», «Середняк», «Высокий риск»). Мгновенно поймёшь, стоит ли доверять проекту.
-                    </p>
-                </div>
-
-                <div class="card" style="padding:20px 16px;">
-                    <div style="font-size:32px;margin-bottom:8px;">🧩</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Карта конкурентов</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Сравнение с 3 лидерами рынка. Узнай, почему ты отстаёшь или в чём твоё преимущество.
-                    </p>
-                </div>
-
-                <div class="card" style="padding:20px 16px;">
-                    <div style="font-size:32px;margin-bottom:8px;">🗣️</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">AI Summary + Вердикт</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        3 сильные стороны, 3 ключевых риска и чёткий совет: «Что делать прямо сейчас».
-                    </p>
-                </div>
-
-                <div class="card" style="padding:20px 16px;">
-                    <div style="font-size:32px;margin-bottom:8px;">🔥</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Голос рынка</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Одна анонимная, живая цитата из сети — что о тебе говорят НА САМОМ ДЕЛЕ.
-                    </p>
-                </div>
-
-            </div>
-
-            <style>
-                @media (max-width: 992px) {
-                    div[style*="grid-template-columns: repeat(4,1fr)"] {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                    }
-                }
-                @media (max-width: 480px) {
-                    div[style*="grid-template-columns: repeat(4,1fr)"] {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-            </style>
-
-            <!-- Повторная кнопка (ведёт к форме) -->
-            <div style="margin-top:32px;max-width:400px;margin-left:auto;margin-right:auto;">
-                <a class="btn-gold" href="#order" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
-                    Получить отчёт за $12
-                </a>
-            </div>
-        </div>
-
-        <!-- ===== БЛОК «КОМУ ЭТО НУЖНО» ===== -->
-        <div style="margin-top:64px;">
-            <h2 style="margin-bottom:8px;">Этот отчёт нужен каждому, кто работает с криптопроектами</h2>
-            <p style="color:#9CA3AF;margin-bottom:24px;">Одна цена — польза для всех.</p>
-
-            <div class="grid-3">
-
-                <div class="card">
-                    <div style="font-size:28px;margin-bottom:8px;">💰</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Инвестор</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Быстро понять: входить или выходить. Одна цифра вместо сотен графиков.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div style="font-size:28px;margin-bottom:8px;">🚀</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Лидер / Админ проекта</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Получить объективный взгляд со стороны и показать команде, что вы крутые (или что нужно подтянуть).
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div style="font-size:28px;margin-bottom:8px;">📢</div>
-                    <h4 style="font-size:16px;color:#F5C542;margin-bottom:6px;">Партнёр / Админ канала</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">
-                        Проверить проект перед тем, как рекомендовать его своей аудитории.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ===== БЛОК «КАК ЭТО РАБОТАЕТ» ===== -->
-        <div style="margin-top:64px;">
-            <h2 style="margin-bottom:24px;">Всего 3 шага до полной картины</h2>
-
-            <div class="grid-3">
-
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:40px;margin-bottom:8px;">1️⃣</div>
-                    <h4 style="font-size:16px;color:#F5C542;">Введи адрес проекта</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">Ссылка на сайт, Telegram или смарт-контракт</p>
-                </div>
-
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:40px;margin-bottom:8px;">2️⃣</div>
-                    <h4 style="font-size:16px;color:#F5C542;">Оплати 12 USDT (BEP20)</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">На указанный кошелёк — это займёт 1 минуту</p>
-                </div>
-
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:40px;margin-bottom:8px;">3️⃣</div>
-                    <h4 style="font-size:16px;color:#F5C542;">Сообщи об оплате</h4>
-                    <p style="font-size:13px;color:#D1D9E6;">Напиши нам в Telegram — и получи отчёт через 5 минут</p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ===== ОТЗЫВЫ ===== -->
-        <div style="margin-top:64px;">
-            <h2 style="margin-bottom:24px;">Что говорят наши клиенты</h2>
-
-            <div class="grid-3">
-
-                <div class="card">
-                    <p style="font-size:14px;color:#D1D9E6;font-style:italic;margin-bottom:12px;">
-                        «Я наконец-то понял, почему мой проект не растёт! Оказалось, мы проседаем по ликвидности, хотя комьюнити активное. За $12 — лучшее вложение.»
-                    </p>
-                    <p style="font-size:13px;color:#F5C542;font-weight:600;">— Алексей, лидер DeFi-проекта</p>
-                </div>
-
-                <div class="card">
-                    <p style="font-size:14px;color:#D1D9E6;font-style:italic;margin-bottom:12px;">
-                        «Раньше тратил дни на ручной анализ. Market Pulse дал всё то же самое за 5 минут. Теперь проверяю каждый проект перед входом.»
-                    </p>
-                    <p style="font-size:13px;color:#F5C542;font-weight:600;">— Марина, инвестор</p>
-                </div>
-
-                <div class="card" style="display:flex;align-items:center;justify-content:center;border-style:dashed;border-color:#2A2F3F;">
-                    <p style="font-size:13px;color:#6B7280;text-align:center;">
-                        Ваш отзыв<br />здесь 😉
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ===== АПСЕЙЛ НА GUARDIAN ===== -->
-        <div style="margin-top:64px;background:#12161F;border-radius:24px;padding:32px 28px;border:1px solid #2A2F3F;text-align:center;">
-
-            <h2 style="font-size:24px;margin-bottom:12px;">Что делать, если твой проект в зоне риска?</h2>
-
-            <p style="color:#D1D9E6;max-width:750px;margin:0 auto 20px;font-size:15px;">
-                Market Pulse дал тебе честную картину. Если ты увидел, что твой проект нуждается в более глубокой защите и постоянном контроле — наш <strong style="color:#F5C542;">Guardian</strong> — это следующий уровень. Он круглосуточно следит за проектом и предупреждает о каждом изменении.
-            </p>
-
-            <a href="https://gebor2011.github.io/shield/" style="display:inline-block;background:transparent;color:#F5C542;font-weight:700;padding:12px 28px;border-radius:40px;text-decoration:none;border:2px solid #F5C542;transition:all 0.2s ease;">
-                Узнать о Guardian
-            </a>
-
-            <div style="font-size:12px;color:#6B7280;margin-top:12px;">
-                Market Pulse — это независимый продукт. Никаких обязательств по покупке других услуг.
-            </div>
-
-        </div>
-
-        <!-- ===== ФОРМА / ОПЛАТА ===== -->
-        <div id="order" style="margin-top:64px;background:#12161F;border-radius:24px;padding:40px 28px;border:1px solid #2A2F3F;">
-
-            <h2 style="text-align:center;font-size:28px;margin-bottom:8px;">Готов узнать реальное положение дел?</h2>
-            <p style="text-align:center;color:#9CA3AF;margin-bottom:28px;">
-                Заполните форму, оплатите 12 USDT и свяжитесь с нами в Telegram — через 5 минут получите полный отчёт.
-            </p>
-
-            <div style="max-width:500px;margin:0 auto;">
-
-                <!-- Поле: ссылка на проект -->
-                <div style="margin-bottom:16px;">
-                    <label for="project">Ссылка на проект</label>
-                    <input type="text" id="project" placeholder="Сайт / Telegram / смарт-контракт" />
-                </div>
-
-                <!-- Поле: Email -->
-                <div style="margin-bottom:16px;">
-                    <label for="email">Email для отправки отчёта</label>
-                    <input type="email" id="email" placeholder="your@email.com" />
-                </div>
-
-                <!-- Поле: Telegram (добавлено) -->
-                <div style="margin-bottom:20px;">
-                    <label for="telegram">Ваш Telegram (для связи)</label>
-                    <input type="text" id="telegram" placeholder="@username" />
-                </div>
-
-                <!-- Информация об оплате -->
-                <div style="background:#0B0E17;border-radius:16px;padding:20px;margin-bottom:20px;border:1px solid #2A2F3F;">
-                    <p style="font-weight:600;color:#F5C542;font-size:16px;text-align:center;">💳 Оплата 12 USDT (BEP20)</p>
-                    <p style="font-size:13px;color:#D1D9E6;text-align:center;margin-top:6px;">
-                        Переведите ровно <strong>12 USDT</strong> на кошелёк:
-                    </p>
-                    <div class="wallet-box">
-                        0x56356e0aD2988565E5906D8630BA05c3ebF813aC
-                    </div>
-                    <p style="font-size:12px;color:#6B7280;text-align:center;">
-                        Убедитесь, что выбрана сеть <strong>BEP20 (BSC)</strong>.
-                    </p>
-                </div>
-
-                <!-- Кнопка "Сообщить об оплате" (ведёт в Telegram) -->
-                <a href="https://t.me/capitalshield_ai" target="_blank" class="btn-gold" style="display:block;text-align:center;font-size:18px;padding:16px 24px;">
-                    📨 Сообщить об оплате 12$ и получить отчёт
-                </a>
-
-                <!-- Ссылка под кнопкой -->
-                <div style="text-align:center;margin-top:12px;">
-                    <a href="https://t.me/capitalshield_ai" target="_blank" style="color:#F5C542;text-decoration:none;font-weight:600;font-size:14px;">
-                        Написать в Telegram →
-                    </a>
-                </div>
-
-                <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:16px;">
-                    После оплаты напишите нам в Telegram с указанием вашего email и ссылки на проект.<br />
-                    Мы отправим отчёт в течение 5 минут.
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ===== ФУТЕР ===== -->
-        <div style="margin-top:60px;text-align:center;border-top:1px solid #1A1F2C;padding-top:24px;">
-
-            <div style="font-size:13px;color:#6B7280;">
-                © 2026 Capital Shield AI · Market Pulse
-            </div>
-
-            <div style="font-size:13px;color:#9CA3AF;margin-top:10px;">
-                <a href="https://gebor2011.github.io/shield/" style="color:#6B7280;text-decoration:none;">Guardian</a>
-                &nbsp;·&nbsp;
-                <a href="#" style="color:#6B7280;text-decoration:none;">Политика конфиденциальности</a>
-                &nbsp;·&nbsp;
-                <a href="#" style="color:#6B7280;text-decoration:none;">Оферта</a>
-            </div>
-
-            <div style="margin-top:10px;">
-                <a href="https://t.me/capitalshield_ai" style="color:#F5C542;text-decoration:none;font-weight:600;">
-                    Telegram
-                </a>
-            </div>
-
-        </div>
-
+  <!-- Что получишь -->
+  <div class="section">
+    <h2>Что ты получишь за $12, что сэкономит тебе тысячи?</h2>
+    <p style="color:#9CA3AF;margin-bottom:20px">Это не просто данные. Это инсайты, которые ты не найдёшь сам.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">📊</div><h4>Trust Score</h4><p>Цифра от 0 до 100 + статус («Лидер», «Середняк», «Высокий риск»). Мгновенно поймёшь, стоит ли доверять проекту.</p></div>
+      <div class="card"><div class="icon">🧩</div><h4>Карта конкурентов</h4><p>Сравнение с 3 лидерами рынка. Узнай, почему ты отстаёшь или в чём твоё преимущество.</p></div>
+      <div class="card"><div class="icon">🗣️</div><h4>AI Summary + Вердикт</h4><p>3 сильные стороны, 3 ключевых риска и чёткий совет: «Что делать прямо сейчас».</p></div>
+      <div class="card"><div class="icon">🔥</div><h4>Голос рынка</h4><p>Одна анонимная, живая цитата из сети — что о тебе говорят НА САМОМ ДЕЛЕ.</p></div>
     </div>
+    <div style="max-width:400px;margin:30px auto 0"><a href="#order" class="btn-gold">Получить отчёт за $12</a></div>
+  </div>
+
+  <!-- Кому нужно -->
+  <div class="section">
+    <h2>Этот отчёт нужен каждому, кто работает с криптопроектами</h2>
+    <p style="color:#9CA3AF;margin-bottom:20px">Одна цена — польза для всех.</p>
+    <div class="grid">
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">💰</div><h4>Инвестор</h4><p>Быстро понять: входить или выходить. Одна цифра вместо сотен графиков.</p></div>
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">🚀</div><h4>Лидер / Админ проекта</h4><p>Получить объективный взгляд со стороны и показать команде, что вы крутые (или что нужно подтянуть).</p></div>
+      <div class="card"><div style="font-size:28px;margin-bottom:8px">📢</div><h4>Партнёр / Админ канала</h4><p>Проверить проект перед тем, как рекомендовать его своей аудитории.</p></div>
+    </div>
+  </div>
+
+  <!-- Как работает -->
+  <div class="section">
+    <h2 style="margin-bottom:20px">Всего 3 шага до полной картины</h2>
+    <div class="grid">
+      <div class="card" style="text-align:center"><div style="font-size:40px">1️⃣</div><h4>Введи адрес проекта</h4><p>Ссылка на сайт, Telegram или смарт-контракт</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:40px">2️⃣</div><h4>Оплати 12 USDT (BEP20)</h4><p>На указанный кошелёк — это займёт 1 минуту</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:40px">3️⃣</div><h4>Сообщи об оплате</h4><p>Напиши нам в Telegram — и получи отчёт через 5 минут</p></div>
+    </div>
+  </div>
+
+  <!-- Отзывы -->
+  <div class="section">
+    <h2 style="margin-bottom:20px">Что говорят наши клиенты</h2>
+    <div class="grid">
+      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Я наконец-то понял, почему мой проект не растёт! Оказалось, мы проседаем по ликвидности, хотя комьюнити активное. За $12 — лучшее вложение.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Алексей, лидер DeFi-проекта</p></div>
+      <div class="card"><p style="font-style:italic;color:#D1D9E6;font-size:14px;margin-bottom:10px">«Раньше тратил дни на ручной анализ. Market Pulse дал всё то же самое за 5 минут. Теперь проверяю каждый проект перед входом.»</p><p style="color:#F5C542;font-weight:600;font-size:13px">— Марина, инвестор</p></div>
+      <div class="card" style="display:flex;align-items:center;justify-content:center;border-style:dashed"><p style="color:#6B7280;font-size:13px;text-align:center">Ваш отзыв<br />здесь 😉</p></div>
+    </div>
+  </div>
+
+  <!-- Апсейл -->
+  <div class="section box">
+    <h2 style="font-size:24px;margin-bottom:10px">Что делать, если твой проект в зоне риска?</h2>
+    <p style="color:#D1D9E6;max-width:750px;margin:0 auto 20px;font-size:15px">Market Pulse дал тебе честную картину. Если ты увидел, что твой проект нуждается в более глубокой защите и постоянном контроле — наш <strong style="color:#F5C542">Guardian</strong> — это следующий уровень. Он круглосуточно следит за проектом и предупреждает о каждом изменении.</p>
+    <a href="https://gebor2011.github.io/shield/" class="btn-outline" style="max-width:300px;margin:0 auto">Узнать о Guardian</a>
+    <div style="font-size:12px;color:#6B7280;margin-top:12px">Market Pulse — это независимый продукт. Никаких обязательств.</div>
+  </div>
+
+  <!-- Форма -->
+  <div id="order" class="section box" style="text-align:left">
+    <h2 style="text-align:center;font-size:28px">Готов узнать реальное положение дел?</h2>
+    <p style="text-align:center;color:#9CA3AF;margin-bottom:24px">Заполните форму, оплатите 12 USDT и свяжитесь с нами в Telegram — через 5 минут получите полный отчёт.</p>
+    <div class="box-inner">
+      <label>Ссылка на проект</label>
+      <input type="text" placeholder="Сайт / Telegram / смарт-контракт" />
+      <label>Email для отправки отчёта</label>
+      <input type="email" placeholder="your@email.com" />
+      <label>Ваш Telegram (для связи)</label>
+      <input type="text" placeholder="@username" />
+      <div style="background:#0B0E17;border-radius:16px;padding:18px;border:1px solid #2A2F3F;margin:16px 0">
+        <p style="font-weight:700;color:#F5C542;text-align:center;font-size:16px">💳 Оплата 12 USDT (BEP20)</p>
+        <p style="font-size:13px;color:#D1D9E6;text-align:center;margin-top:4px">Переведите ровно <strong>12 USDT</strong> на кошелёк:</p>
+        <div class="wallet">0x56356e0aD2988565E5906D8630BA05c3ebF813aC</div>
+        <p style="font-size:12px;color:#6B7280;text-align:center">Убедитесь, что выбрана сеть <strong>BEP20 (BSC)</strong>.</p>
+      </div>
+      <a href="https://t.me/capitalshield_ai" target="_blank" class="btn-gold" style="font-size:18px;padding:16px">📨 Сообщить об оплате 12$ и получить отчёт</a>
+      <div style="text-align:center;margin-top:10px"><a href="https://t.me/capitalshield_ai" target="_blank" style="color:#F5C542;font-weight:600;text-decoration:none">Написать в Telegram →</a></div>
+      <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:14px">После оплаты напишите нам в Telegram с указанием вашего email и ссылки на проект. Мы отправим отчёт в течение 5 минут.</div>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <div class="ftr">
+    <div>© 2026 Capital Shield AI · Market Pulse</div>
+    <div style="margin-top:8px">
+      <a href="https://gebor2011.github.io/shield/">Guardian</a> ·
+      <a href="#">Политика конфиденциальности</a> ·
+      <a href="#">Оферта</a>
+    </div>
+    <div style="margin-top:6px"><a href="https://t.me/capitalshield_ai" class="gold">Telegram</a></div>
+  </div>
+
+</div>
 </body>
 </html>
