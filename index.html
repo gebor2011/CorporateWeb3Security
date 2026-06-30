@@ -126,25 +126,34 @@
   <!-- ФОРМА (id="order") -->
   <div id="order" class="section box" style="text-align:left">
     <h2 style="text-align:center;font-size:28px">Готов увидеть свой проект со стороны?</h2>
-    <p style="text-align:center;color:#9CA3AF;margin-bottom:24px">Заполните поля, оплатите и свяжитесь с нами в Telegram.</p>
+    <p style="text-align:center;color:#9CA3AF;margin-bottom:24px">Заполните поля, оплатите и отправьте заявку. Мы свяжемся с вами в Telegram.</p>
     <div class="box-inner">
-      <label>Ссылка на проект</label>
-      <input type="text" placeholder="Например, сайт или Telegram-канал" />
-      <label>Email для отчёта</label>
-      <input type="email" placeholder="your@email.com" />
-      <label>Ваш Telegram (для связи)</label>
-      <input type="text" placeholder="@username" />
+      <!-- НАЧАЛО ФОРМЫ -->
+      <form action="https://formspree.io/f/mzdlajab" method="POST">
+        <!-- Скрытое поле для темы письма -->
+        <input type="hidden" name="_subject" value="Новая заявка с Market Pulse" />
 
-      <div style="background:#0B0E17;border-radius:16px;padding:18px;border:1px solid #2A2F3F;margin:16px 0">
-        <p style="font-weight:700;color:#F5C542;text-align:center;font-size:16px">💳 Оплата 12 USDT (BEP20)</p>
-        <p style="font-size:13px;color:#D1D9E6;text-align:center;margin-top:4px">Переведите <strong>ровно 12 USDT</strong> на этот кошелёк:</p>
-        <div class="wallet">0x56356e0aD2988565E5906D8630BA05c3ebF813aC</div>
-        <p style="font-size:12px;color:#6B7280;text-align:center">Сеть <strong>BEP20 (BSC)</strong>. Проверьте перед отправкой.</p>
-      </div>
+        <label>Ссылка на проект</label>
+        <input type="text" name="project_link" placeholder="Например, сайт или Telegram-канал" required />
 
-      <!-- Кнопка внутри формы, ведущая в Telegram -->
-      <a href="https://t.me/capitalshield_ai" target="_blank" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">📨 Сообщить об оплате и получить отчёт</a>
-      <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:14px;">После оплаты напишите нам в Telegram с указанием email и ссылки на проект.</div>
+        <label>Email для отчёта</label>
+        <input type="email" name="email" placeholder="your@email.com" required />
+
+        <label>Ваш Telegram (для связи)</label>
+        <input type="text" name="telegram" placeholder="@username" required />
+
+        <div style="background:#0B0E17;border-radius:16px;padding:18px;border:1px solid #2A2F3F;margin:16px 0">
+          <p style="font-weight:700;color:#F5C542;text-align:center;font-size:16px">💳 Оплата 12 USDT (BEP20)</p>
+          <p style="font-size:13px;color:#D1D9E6;text-align:center;margin-top:4px">Переведите <strong>ровно 12 USDT</strong> на этот кошелёк:</p>
+          <div class="wallet">0x56356e0aD2988565E5906D8630BA05c3ebF813aC</div>
+          <p style="font-size:12px;color:#6B7280;text-align:center">Сеть <strong>BEP20 (BSC)</strong>. Проверьте перед отправкой.</p>
+        </div>
+
+        <!-- Кнопка отправки формы -->
+        <button type="submit" class="btn-gold" style="display:block;width:100%;text-align:center;font-size:18px;padding:16px;">📨 Сообщить об оплате и получить отчёт</button>
+      </form>
+      <!-- КОНЕЦ ФОРМЫ -->
+      <div style="font-size:12px;color:#6B7280;text-align:center;margin-top:14px;">После отправки заявки мы свяжемся с вами в Telegram для подтверждения оплаты и отправки отчёта.</div>
     </div>
   </div>
 
